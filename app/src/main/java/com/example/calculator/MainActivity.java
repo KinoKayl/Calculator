@@ -13,6 +13,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
+    String OldNumber;
+    String operator;
     boolean isNew = true;
     EditText editText;
 
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         String number = editText.getText().toString();
         if (isNew)
         {
+            OldNumber = number;
             number = "";
             isNew = false;
         }
@@ -69,11 +72,11 @@ public class MainActivity extends AppCompatActivity {
         else if (view.getId() == R.id.Zerobutton) {
             number = number + "0";
         }
-        else if (view.getId() == R.id.Ebutton) {
-            number = number + "e";
+       /* else if (view.getId() == R.id.Ebutton) {
+            number = number + "2,71828183";
         }
 
-        /*
+
         switch (view.getId())
         {
             case (R.id.eightbutton):
@@ -90,6 +93,49 @@ public class MainActivity extends AppCompatActivity {
         editText.setText(number);
     }
 
+
+
+
+    public void Operation(View view) {
+        String number = editText.getText().toString();
+        isNew = true;
+
+        if (view.getId() == R.id.Minusbutton) {
+            operator = "-";
+        }
+        if (view.getId() == R.id.Plusbutton) {
+            operator = "+";
+        }
+        if (view.getId() == R.id.Multiplybutton) {
+            operator = "*";
+        }
+        if (view.getId() == R.id.Dividebutton) {
+            operator = "/";
+        }
+        if (view.getId() == R.id.Resultbutton) {
+            double oldNumberDouble = Double.parseDouble(OldNumber);
+            double numberDouble = Double.parseDouble(number);
+            switch (operator)
+            {
+                case "-":
+                    number = String.valueOf(oldNumberDouble - numberDouble);
+                    break;
+                case "+":
+                    number = String.valueOf(oldNumberDouble + numberDouble);
+                    break;
+                case "*":
+                    number = String.valueOf(oldNumberDouble * numberDouble);
+                    break;
+                case "/":
+                    number = String.valueOf(oldNumberDouble / numberDouble);
+                    break;
+            }
+
+            editText.setText(number);
+        }
+
+    }
+
     public void Backspace(View view) {
         String number = editText.getText().toString();
 
@@ -100,14 +146,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-
-    public void Divide(View view) {
-        String number = editText.getText().toString();
-        editText.setText(number + "/" + "\n");
-
-    }
-
     public void Clear(View view) {
         editText.setText("0");
         isNew = true;
@@ -117,12 +155,12 @@ public class MainActivity extends AppCompatActivity {
         String number = editText.getText().toString();
         String min = number.substring(0, 0);
         if (min == "-") {
-            number = number.substring(0, number.length() - 1);
+            number = number.substring(1, number.length());
             editText.setText(number);
         }
         else
         {
-            number = number.substring(0, number.length() - 1);
+            number = "-" + number;
             editText.setText(number);
         }
     }

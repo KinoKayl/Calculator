@@ -66,7 +66,7 @@
                 android:layout_marginRight="1pt"
                 android:background="@color/gray"
                 android:textSize="10pt"
-                android:onClick="Divide"
+                android:onClick="Operation"
                 />
             <Button
                 android:id="@+id/Backbutton"
@@ -131,6 +131,7 @@
                 android:layout_marginRight="1pt"
                 android:background="@color/gray"
                 android:textSize="10pt"
+                android:onClick="Operation"
                 />
         </TableRow>
 
@@ -184,6 +185,7 @@
                 android:layout_marginRight="1pt"
                 android:background="@color/gray"
                 android:textSize="10pt"
+                android:onClick="Operation"
                 />
         </TableRow>
 
@@ -237,6 +239,7 @@
                 android:layout_marginRight="1pt"
                 android:background="@color/gray"
                 android:textSize="10pt"
+                android:onClick="Operation"
                 />
         </TableRow>
         <TableRow
@@ -246,7 +249,7 @@
             android:layout_marginLeft="1pt"
             >
 
-
+<!--
             <Button
                 android:id="@+id/Ebutton"
                 android:text="e"
@@ -258,13 +261,14 @@
                 android:textSize="10pt"
                 android:onClick="Addnumber"
                 />
+-->
             <Button
                 android:id="@+id/Zerobutton"
                 android:text="0"
                 android:height="30pt"
                 android:width="30pt"
-                android:layout_weight="1"
-                android:layout_marginRight="1pt"
+                android:layout_weight="0.2"
+                android:layout_marginRight="1.5pt"
                 android:background="@color/gray"
                 android:textSize="10pt"
                 android:onClick="Addnumber"
@@ -274,8 +278,8 @@
                 android:text="."
                 android:height="30pt"
                 android:width="30pt"
-                android:layout_weight="1"
-                android:layout_marginRight="1pt"
+                android:layout_weight="0.2"
+                android:layout_marginRight="2pt"
                 android:background="@color/gray"
                 android:textSize="10pt"
                 />
@@ -284,10 +288,11 @@
                 android:text="="
                 android:height="30pt"
                 android:width="30pt"
-                android:layout_weight="1"
+                android:layout_weight="1.85"
                 android:layout_marginRight="1pt"
                 android:background="@color/gray"
                 android:textSize="10pt"
+                android:onClick="Operation"
                 />
         </TableRow>
 
