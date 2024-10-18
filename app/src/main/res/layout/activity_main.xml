@@ -282,6 +282,7 @@
                 android:layout_marginRight="2pt"
                 android:background="@color/gray"
                 android:textSize="10pt"
+                android:onClick="Addnumber"
                 />
             <Button
                 android:id="@+id/Resultbutton"

@@ -72,6 +72,10 @@ public class MainActivity extends AppCompatActivity {
         else if (view.getId() == R.id.Zerobutton) {
             number = number + "0";
         }
+        else if (view.getId() == R.id.Dotbutton) {
+            number = number + ".";
+        }
+
        /* else if (view.getId() == R.id.Ebutton) {
             number = number + "2,71828183";
         }
