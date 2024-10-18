@@ -12,21 +12,76 @@
     <EditText
         android:id="@+id/editText"
         android:layout_width="match_parent"
-        android:layout_height="378dp"
+        android:layout_height="286dp"
 
+        android:layout_weight="1"
         android:background="@color/white"
         android:ems="10"
         android:gravity="right|center"
         android:inputType="text"
         android:text="0"
-        android:textSize="40pt"
-        android:layout_weight="1"/>
+        android:textSize="40pt" />
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="1pt"
         android:gravity="bottom">
+
+        <TableRow
+            android:id="@+id/hidenrow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="1pt"
+            android:layout_marginLeft="1pt"
+            android:visibility="gone"
+            >
+
+            <Button
+                android:id="@+id/SQRbutton"
+                android:text="^2"
+                android:height="30pt"
+                android:width="30pt"
+                android:layout_weight="1"
+                android:layout_marginRight="1pt"
+                android:background="@color/gray"
+                android:textSize="10pt"
+                android:onClick="Operation2"
+                />
+            <Button
+                android:id="@+id/SQRTbutton"
+                android:text="√"
+                android:height="30pt"
+                android:width="30pt"
+                android:layout_weight="1"
+                android:layout_marginRight="1pt"
+                android:background="@color/gray"
+                android:textSize="10pt"
+                android:onClick="Operation2"
+                />
+            <Button
+                android:id="@+id/PIbutton"
+                android:text="π"
+                android:height="30pt"
+                android:width="30pt"
+                android:layout_weight="1"
+                android:layout_marginRight="1pt"
+                android:background="@color/gray"
+                android:textSize="10pt"
+                android:onClick="Operation2"
+                />
+            <Button
+                android:id="@+id/Percentbutton"
+                android:text="%"
+                android:height="30pt"
+                android:width="30pt"
+                android:layout_weight="1"
+                android:layout_marginRight="1pt"
+                android:background="@color/gray"
+                android:textSize="10pt"
+                android:onClick="Operation2"
+                />
+        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
@@ -243,31 +298,33 @@
                 />
         </TableRow>
         <TableRow
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="1pt"
             android:layout_marginLeft="1pt"
+
             >
 
-<!--
+
             <Button
-                android:id="@+id/Ebutton"
-                android:text="e"
+                android:id="@+id/rowbutton"
+                android:text="↑"
                 android:height="30pt"
                 android:width="30pt"
                 android:layout_weight="1"
                 android:layout_marginRight="1pt"
                 android:background="@color/gray"
                 android:textSize="10pt"
-                android:onClick="Addnumber"
+                android:onClick="Addrow"
                 />
--->
+
             <Button
                 android:id="@+id/Zerobutton"
                 android:text="0"
                 android:height="30pt"
                 android:width="30pt"
-                android:layout_weight="0.2"
+                android:layout_weight="1"
                 android:layout_marginRight="1.5pt"
                 android:background="@color/gray"
                 android:textSize="10pt"
@@ -278,7 +335,7 @@
                 android:text="."
                 android:height="30pt"
                 android:width="30pt"
-                android:layout_weight="0.2"
+                android:layout_weight="1"
                 android:layout_marginRight="2pt"
                 android:background="@color/gray"
                 android:textSize="10pt"
@@ -289,7 +346,7 @@
                 android:text="="
                 android:height="30pt"
                 android:width="30pt"
-                android:layout_weight="1.85"
+                android:layout_weight="1"
                 android:layout_marginRight="1pt"
                 android:background="@color/gray"
                 android:textSize="10pt"

@@ -3,7 +3,10 @@ package com.example.calculator;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TableRow;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,10 +17,14 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     String OldNumber;
-    String operator;
+    String operator = "null";
     boolean isNew = true;
+    boolean isHiden = true;
     EditText editText;
+    TableRow hidenrow;
+    Button rowbutton;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         editText = findViewById(R.id.editText);
+        hidenrow = findViewById(R.id.hidenrow);
+        rowbutton = findViewById(R.id.rowbutton);
     }
 
 
@@ -119,25 +128,46 @@ public class MainActivity extends AppCompatActivity {
         if (view.getId() == R.id.Resultbutton) {
             double oldNumberDouble = Double.parseDouble(OldNumber);
             double numberDouble = Double.parseDouble(number);
-            switch (operator)
-            {
-                case "-":
-                    number = String.valueOf(oldNumberDouble - numberDouble);
-                    break;
-                case "+":
-                    number = String.valueOf(oldNumberDouble + numberDouble);
-                    break;
-                case "*":
-                    number = String.valueOf(oldNumberDouble * numberDouble);
-                    break;
-                case "/":
-                    number = String.valueOf(oldNumberDouble / numberDouble);
-                    break;
+            switch (operator) {
+                    case "-":
+                        number = String.valueOf(oldNumberDouble - numberDouble);
+                        break;
+                    case "+":
+                        number = String.valueOf(oldNumberDouble + numberDouble);
+                        break;
+                    case "*":
+                        number = String.valueOf(oldNumberDouble * numberDouble);
+                        break;
+                    case "/":
+                        number = String.valueOf(oldNumberDouble / numberDouble);
+                        break;
+                    case "null":
+                        Toast.makeText(MainActivity.this, "Ошибка: выберите оператор.", Toast.LENGTH_SHORT).show();
+                        break;
             }
-
             editText.setText(number);
         }
 
+    }
+
+    public void Operation2(View view) {
+        String number = editText.getText().toString();
+        double numberDouble = Double.parseDouble(number);
+        isNew = true;
+
+        if (view.getId() == R.id.SQRbutton) {
+            number = String.valueOf(Math.pow(numberDouble, 2));
+        }
+        if (view.getId() == R.id.SQRTbutton) {
+            number = String.valueOf(Math.sqrt(numberDouble));;
+        }
+        if (view.getId() == R.id.PIbutton) {
+            number = "3.14";
+        }
+        if (view.getId() == R.id.Percentbutton) {
+            number = String.valueOf(numberDouble/100);
+        }
+        editText.setText(number);
     }
 
     public void Backspace(View view) {
@@ -167,5 +197,23 @@ public class MainActivity extends AppCompatActivity {
             number = "-" + number;
             editText.setText(number);
         }
+    }
+
+    public void Addrow(View view) {
+        if (isHiden)
+        {
+            isHiden = false;
+            hidenrow.setVisibility(View.VISIBLE);
+            rowbutton.setText("↓");
+        }
+        else
+        {
+            isHiden = true;
+            hidenrow.setVisibility(View.GONE);
+            rowbutton.setText("↑");
+        }
+
+
+
     }
 }
